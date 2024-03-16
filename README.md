@@ -4,4 +4,4 @@ This server is intended to trigger Globus-Gladier flows upon new data becoming a
 
 ## Orchestration Logic
 
-The Globus-Gladier logic itself can be found in this (repo)[https://github.com/LivePublication/gladier-globus-orchestration].
+The Globus-Gladier logic itself can be found in this [repo](https://github.com/LivePublication/gladier-globus-orchestration).
