@@ -4,3 +4,6 @@ apscheduler
 gladier
 gladier-tools
 funcx
+python-multipart
+jinja2
+pyjwt

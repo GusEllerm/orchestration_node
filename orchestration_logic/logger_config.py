@@ -5,7 +5,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 # File handler for logging to a file
-file_handler = logging.FileHandler('orchestration_logic/orchestration_logic.log')
+file_handler = logging.FileHandler('logs/orchestration_logic.log')
 file_handler.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(formatter)

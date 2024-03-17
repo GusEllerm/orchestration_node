@@ -163,3 +163,4 @@ cython_debug/
 orchestration_logic.log
 o_node_venv
 o-server.log
+config.py

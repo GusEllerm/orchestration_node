@@ -1,0 +1,80 @@
+<!-- templates/control_center.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Control Center</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script>
+        function updateLog(containerId, logUrl) {
+            fetch(logUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Use the 'log' key of the JSON response
+                    document.getElementById(containerId).innerHTML = data.log;
+                })
+                .catch(error => console.error('Error fetching log:', error));
+        }
+
+        function updateLogs() {
+            updateLog('log1', '/logs/server');
+            updateLog('log2', '/logs/uvicorn');
+            updateLog('log3', '/logs/oLogic')
+        }
+        setInterval(updateLogs, 1000); // Update logs every 5 seconds
+    </script>
+    <script>
+    function executeTestFlow() {
+        fetch('/test', {
+            method: 'GET' // Assuming the /test endpoint is a GET request
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // Update the UI or log box with the response data if needed
+        })
+        .catch(error => {
+            console.error('Error executing test flow:', error);
+        });
+    }
+    </script>
+</head>
+<body>
+    <div class="control-center">
+        <div class="button-grid">
+            <div>
+                <button onclick="executeTestFlow()">Test Flow</button>
+                <div class="button-description">Executes a test Gladier/Globus flow</div>
+            </div>
+            <div>
+                <button>Function 2</button>
+                <div class="button-description">Description of Function 2</div>
+            </div>
+            <div>
+                <button>Function 3</button>
+                <div class="button-description">Description of Function 3</div>
+            </div>
+            <div>
+                <button>Function 4</button>
+                <div class="button-description">Description of Function 4</div>
+            </div>
+        </div>
+        <div class="log-container">
+          <div class="log-box-container">
+            <div class="log-title">Server logs</div>
+            <div class="log-box" id="log1">Log 1 content...</div>
+          </div>
+
+          <div class="log-box-container">
+            <div class="log-title">Uvicorn Logs</div>
+            <div class="log-box" id="log2">Log 2 content...</div>
+          </div>
+
+          <div class="log-box-container">
+            <div class="log-title">O-Logic Logs</div>
+            <div class="log-box" id="log3">Log 3 content...</div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
